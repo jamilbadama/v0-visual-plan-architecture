@@ -16,11 +16,12 @@ Visual Plan is a Next.js application that uses OpenAI's GPT models to generate v
    :caption: Contents:
 
    overview
+   installation
+   getting-started
    api/index
    components/index
    pages/index
    types
-   getting-started
 
 Indices and tables
 ==================
