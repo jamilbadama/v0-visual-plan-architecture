@@ -1,0 +1,86 @@
+UI Components
+=============
+
+Location: ``components/ui/``
+
+The application uses a set of reusable UI components built on Radix UI primitives and styled with Tailwind CSS.
+
+Available Components
+--------------------
+
+Button
+~~~~~~
+
+Location: ``components/ui/button.tsx``
+
+A versatile button component with multiple variants.
+
+**Variants:**
+   - ``default``: Primary button style
+   - ``outline``: Outlined button style
+   - Additional variants as configured
+
+**Usage:**
+   .. code-block:: tsx
+
+      import { Button } from "@/components/ui/button"
+      
+      <Button onClick={handleClick}>Click me</Button>
+      <Button variant="outline" size="lg">Large Button</Button>
+
+Card
+~~~~
+
+Location: ``components/ui/card.tsx``
+
+A container component for grouping related content.
+
+**Usage:**
+   .. code-block:: tsx
+
+      import { Card } from "@/components/ui/card"
+      
+      <Card className="p-8">
+         <h2>Card Title</h2>
+         <p>Card content</p>
+      </Card>
+
+Textarea
+~~~~~~~~
+
+Location: ``components/ui/textarea.tsx``
+
+A text input component for multi-line text entry.
+
+**Usage:**
+   .. code-block:: tsx
+
+      import { Textarea } from "@/components/ui/textarea"
+      
+      <Textarea 
+         placeholder="Enter your prompt..."
+         value={prompt}
+         onChange={(e) => setPrompt(e.target.value)}
+      />
+
+Component Library
+-----------------
+
+These components are part of a larger UI component library that includes:
+
+- Form controls (Button, Textarea, Input, etc.)
+- Layout components (Card, Separator, etc.)
+- Interactive components (Dialog, Dropdown, etc.)
+- All built on Radix UI for accessibility
+
+Styling
+-------
+
+All components use:
+- Tailwind CSS for styling
+- CSS variables for theming
+- Responsive design utilities
+- Dark mode support
+
+The components are configured through ``components.json`` and can be customized using Tailwind classes.
+

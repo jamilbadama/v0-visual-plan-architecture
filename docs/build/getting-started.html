@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; Visual Plan Architecture 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Type Definitions" href="types.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Visual Plan Architecture
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/index.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Type Definitions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-for-production">Building for Production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-dependencies">Key Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-workflow">Development Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Visual Plan Architecture</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>This guide will help you set up and run the Visual Plan Architecture application.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Node.js</strong>: Version 18 or higher</p></li>
+<li><p><strong>pnpm</strong>: Package manager (or npm/yarn)</p></li>
+<li><p><strong>OpenAI API Key</strong>: Required for AI generation</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the repository:</strong>
+.. code-block:: bash</p>
+<blockquote>
+<div><p>git clone &lt;repository-url&gt;
+cd v0-visual-plan-architecture</p>
+</div></blockquote>
+</li>
+<li><p><strong>Install dependencies:</strong>
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pnpm install</p>
+</div></blockquote>
+</li>
+<li><p><strong>Set up environment variables:</strong></p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.env.local</span></code> file in the root directory:
+.. code-block:: env</p>
+<blockquote>
+<div><p>OPENAI_API_KEY=your_openai_api_key_here</p>
+</div></blockquote>
+</li>
+<li><p><strong>Run the development server:</strong>
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pnpm dev</p>
+</div></blockquote>
+<p>The application will be available at <code class="docutils literal notranslate"><span class="pre">http://localhost:3000</span></code></p>
+</li>
+</ol>
+</section>
+<section id="building-for-production">
+<h2>Building for Production<a class="headerlink" href="#building-for-production" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Build the application:</strong>
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pnpm build</p>
+</div></blockquote>
+</li>
+<li><p><strong>Start the production server:</strong>
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pnpm start</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>v0-visual-plan-architecture/
+├── app/              # Next.js App Router
+├── components/       # React components
+├── lib/             # Utilities and types
+├── public/          # Static assets
+├── docs/            # Documentation
+└── package.json     # Dependencies
+</pre></div>
+</div>
+</section>
+<section id="key-dependencies">
+<h2>Key Dependencies<a class="headerlink" href="#key-dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>next</strong>: React framework</p></li>
+<li><p><strong>react</strong>: UI library</p></li>
+<li><p><strong>&#64;ai-sdk/openai</strong>: OpenAI integration</p></li>
+<li><p><strong>ai</strong>: Vercel AI SDK</p></li>
+<li><p><strong>tailwindcss</strong>: Styling</p></li>
+<li><p><strong>&#64;radix-ui/*</strong>: UI primitives</p></li>
+</ul>
+</section>
+<section id="development-workflow">
+<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Make changes to the codebase</p></li>
+<li><p>The development server will hot-reload automatically</p></li>
+<li><p>Test your changes in the browser</p></li>
+<li><p>Build and test production build before deploying</p></li>
+</ol>
+</section>
+<section id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Link to this heading"></a></h2>
+<p>The application is configured for deployment on Vercel:</p>
+<ol class="arabic simple">
+<li><p>Push your code to a Git repository</p></li>
+<li><p>Connect the repository to Vercel</p></li>
+<li><p>Set environment variables in Vercel dashboard</p></li>
+<li><p>Deploy automatically on push</p></li>
+</ol>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<p>Required:
+- <code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code>: Your OpenAI API key</p>
+<p>Optional:
+- <code class="docutils literal notranslate"><span class="pre">NEXT_PUBLIC_APP_URL</span></code>: Application URL (for production)</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Issue: API errors</strong></dt><dd><ul class="simple">
+<li><p>Verify your OpenAI API key is set correctly</p></li>
+<li><p>Check that you have sufficient API credits</p></li>
+<li><p>Review API rate limits</p></li>
+</ul>
+</dd>
+<dt><strong>Issue: Build errors</strong></dt><dd><ul class="simple">
+<li><p>Clear <code class="docutils literal notranslate"><span class="pre">.next</span></code> directory: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">.next</span></code></p></li>
+<li><p>Reinstall dependencies: <code class="docutils literal notranslate"><span class="pre">pnpm</span> <span class="pre">install</span></code></p></li>
+<li><p>Check Node.js version compatibility</p></li>
+</ul>
+</dd>
+<dt><strong>Issue: Styling not working</strong></dt><dd><ul class="simple">
+<li><p>Verify Tailwind CSS is configured correctly</p></li>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">postcss.config.mjs</span></code></p></li>
+<li><p>Restart the development server</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nextjs.org/docs">Next.js Documentation</a></p></li>
+<li><p><a class="reference external" href="https://sdk.vercel.ai/docs">Vercel AI SDK</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/docs">OpenAI API Documentation</a></p></li>
+<li><p><a class="reference external" href="https://tailwindcss.com/docs">Tailwind CSS Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="types.html" class="btn btn-neutral float-left" title="Type Definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Visual Plan Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+Getting Started
+===============
+
+This guide will help you set up and run the Visual Plan Architecture application.
+
+Prerequisites
+-------------
+
+- **Node.js**: Version 18 or higher
+- **pnpm**: Package manager (or npm/yarn)
+- **OpenAI API Key**: Required for AI generation
+
+Installation
+------------
+
+1. **Clone the repository:**
+   .. code-block:: bash
+
+      git clone <repository-url>
+      cd v0-visual-plan-architecture
+
+2. **Install dependencies:**
+   .. code-block:: bash
+
+      pnpm install
+
+3. **Set up environment variables:**
+   
+   Create a ``.env.local`` file in the root directory:
+   .. code-block:: env
+
+      OPENAI_API_KEY=your_openai_api_key_here
+
+4. **Run the development server:**
+   .. code-block:: bash
+
+      pnpm dev
+
+   The application will be available at ``http://localhost:3000``
+
+Building for Production
+------------------------
+
+1. **Build the application:**
+   .. code-block:: bash
+
+      pnpm build
+
+2. **Start the production server:**
+   .. code-block:: bash
+
+      pnpm start
+
+Project Structure
+----------------
+
+::
+
+   v0-visual-plan-architecture/
+   ├── app/              # Next.js App Router
+   ├── components/       # React components
+   ├── lib/             # Utilities and types
+   ├── public/          # Static assets
+   ├── docs/            # Documentation
+   └── package.json     # Dependencies
+
+Key Dependencies
+----------------
+
+- **next**: React framework
+- **react**: UI library
+- **@ai-sdk/openai**: OpenAI integration
+- **ai**: Vercel AI SDK
+- **tailwindcss**: Styling
+- **@radix-ui/***: UI primitives
+
+Development Workflow
+--------------------
+
+1. Make changes to the codebase
+2. The development server will hot-reload automatically
+3. Test your changes in the browser
+4. Build and test production build before deploying
+
+Deployment
+----------
+
+The application is configured for deployment on Vercel:
+
+1. Push your code to a Git repository
+2. Connect the repository to Vercel
+3. Set environment variables in Vercel dashboard
+4. Deploy automatically on push
+
+Environment Variables
+---------------------
+
+Required:
+- ``OPENAI_API_KEY``: Your OpenAI API key
+
+Optional:
+- ``NEXT_PUBLIC_APP_URL``: Application URL (for production)
+
+Troubleshooting
+---------------
+
+**Issue: API errors**
+   - Verify your OpenAI API key is set correctly
+   - Check that you have sufficient API credits
+   - Review API rate limits
+
+**Issue: Build errors**
+   - Clear ``.next`` directory: ``rm -rf .next``
+   - Reinstall dependencies: ``pnpm install``
+   - Check Node.js version compatibility
+
+**Issue: Styling not working**
+   - Verify Tailwind CSS is configured correctly
+   - Check ``postcss.config.mjs``
+   - Restart the development server
+
+Additional Resources
+--------------------
+
+- `Next.js Documentation <https://nextjs.org/docs>`_
+- `Vercel AI SDK <https://sdk.vercel.ai/docs>`_
+- `OpenAI API Documentation <https://platform.openai.com/docs>`_
+- `Tailwind CSS Documentation <https://tailwindcss.com/docs>`_
+

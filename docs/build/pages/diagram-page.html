@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagram Page &mdash; Visual Plan Architecture 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Type Definitions" href="../types.html" />
+    <link rel="prev" title="Art Page" href="art-page.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Visual Plan Architecture
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="home.html">Home Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="art-page.html">Art Page</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Diagram Page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layout">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state-management">State Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-integration">API Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svg-rendering">SVG Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagram-types">Diagram Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ui-components-used">UI Components Used</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#differences-from-art-page">Differences from Art Page</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#page-structure">Page Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#routing">Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Type Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Visual Plan Architecture</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Pages</a></li>
+      <li class="breadcrumb-item active">Diagram Page</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pages/diagram-page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="diagram-page">
+<h1>Diagram Page<a class="headerlink" href="#diagram-page" title="Link to this heading"></a></h1>
+<p>Location: <code class="docutils literal notranslate"><span class="pre">app/diagram/page.tsx</span></code></p>
+<p>The Diagram Mode page where users can generate SVG diagrams using AI.</p>
+<section id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Link to this heading"></a></h2>
+<p>The page follows the same two-column layout as the Art page:</p>
+<ol class="arabic simple">
+<li><p><strong>Input Section</strong> (left):
+- Textarea for entering prompts
+- Generate button
+- Diagram types information
+- Error display</p></li>
+<li><p><strong>Preview Section</strong> (right):
+- Loading state with spinner
+- Generated SVG diagram display
+- Download button
+- Prompt display</p></li>
+</ol>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Prompt Input</strong>: Multi-line textarea for describing the desired diagram</p></li>
+<li><p><strong>Real-time Generation</strong>: Shows loading state during generation</p></li>
+<li><p><strong>Error Handling</strong>: Displays error messages if generation fails</p></li>
+<li><p><strong>SVG Preview</strong>: Renders the generated SVG directly in the page</p></li>
+<li><p><strong>Download Functionality</strong>: Button to download the SVG</p></li>
+</ul>
+</section>
+<section id="state-management">
+<h2>State Management<a class="headerlink" href="#state-management" title="Link to this heading"></a></h2>
+<p>The page uses React hooks:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code>: Stores the user’s input</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loading</span></code>: Tracks generation status</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: Stores the API response with SVG content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code>: Stores error messages</p></li>
+</ul>
+</section>
+<section id="api-integration">
+<h2>API Integration<a class="headerlink" href="#api-integration" title="Link to this heading"></a></h2>
+<p>The page calls <code class="docutils literal notranslate"><span class="pre">/api/generate-diagram</span></code> with a POST request containing the prompt.</p>
+<dl>
+<dt><strong>Request:</strong></dt><dd><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;User&#39;s description&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Response Handling:</strong></dt><dd><ul class="simple">
+<li><p>On success: Renders the SVG using <code class="docutils literal notranslate"><span class="pre">dangerouslySetInnerHTML</span></code></p></li>
+<li><p>On error: Shows error message to the user</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="svg-rendering">
+<h2>SVG Rendering<a class="headerlink" href="#svg-rendering" title="Link to this heading"></a></h2>
+<p>The generated SVG is rendered directly in the DOM using React’s <code class="docutils literal notranslate"><span class="pre">dangerouslySetInnerHTML</span></code> prop. The SVG is wrapped in a container with proper styling for display.</p>
+<p><strong>Note:</strong> In production, you may want to sanitize the SVG content before rendering.</p>
+</section>
+<section id="diagram-types">
+<h2>Diagram Types<a class="headerlink" href="#diagram-types" title="Link to this heading"></a></h2>
+<p>The page provides information about supported diagram types:
+- Flowcharts and workflows
+- Architecture diagrams
+- Wireframes and mockups
+- Network and system diagrams</p>
+</section>
+<section id="ui-components-used">
+<h2>UI Components Used<a class="headerlink" href="#ui-components-used" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ModeHeader</span></code>: Page header with navigation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Card</span></code>: Container for input and preview sections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Textarea</span></code>: Prompt input field</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button</span></code>: Generate and download buttons</p></li>
+</ul>
+</section>
+<section id="differences-from-art-page">
+<h2>Differences from Art Page<a class="headerlink" href="#differences-from-art-page" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">dangerouslySetInnerHTML</span></code> to render SVG instead of an <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> tag</p></li>
+<li><p>Different loading spinner color (accent instead of primary)</p></li>
+<li><p>Different placeholder icon (📊 instead of 🎨)</p></li>
+<li><p>Different tips section focused on diagram types</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="art-page.html" class="btn btn-neutral float-left" title="Art Page" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../types.html" class="btn btn-neutral float-right" title="Type Definitions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Visual Plan Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

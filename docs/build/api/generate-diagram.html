@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate Diagram API &mdash; Visual Plan Architecture 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Components" href="../components/index.html" />
+    <link rel="prev" title="Generate Art API" href="generate-art.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Visual Plan Architecture
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Routes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="generate-art.html">Generate Art API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate Diagram API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request">Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response">Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-plan-structure">Visual Plan Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svg-generation">SVG Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usage">Example Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-diagram-types">Supported Diagram Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#common-response-format">Common Response Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/index.html">Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Type Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Visual Plan Architecture</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Routes</a></li>
+      <li class="breadcrumb-item active">Generate Diagram API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/generate-diagram.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generate-diagram-api">
+<h1>Generate Diagram API<a class="headerlink" href="#generate-diagram-api" title="Link to this heading"></a></h1>
+<p>Endpoint: <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/generate-diagram</span></code></p>
+<p>Generates a visual plan and SVG content for diagram creation based on a text prompt.</p>
+<section id="request">
+<h2>Request<a class="headerlink" href="#request" title="Link to this heading"></a></h2>
+<dl>
+<dt><strong>Headers:</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Content-Type:</span> <span class="pre">application/json</span></code></p></li>
+</ul>
+</dd>
+<dt><strong>Body:</strong></dt><dd><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A flowchart showing the user registration process with decision points&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Parameters:</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code> (string, required): Natural language description of the desired diagram</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="response">
+<h2>Response<a class="headerlink" href="#response" title="Link to this heading"></a></h2>
+<dl>
+<dt><strong>Success (200):</strong></dt><dd><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A flowchart showing...&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;visualPlan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;User Registration Flowchart&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;flowchart&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;process&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start Registration&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;validate&quot;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;layout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hierarchical&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;styling&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;colors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;#3b82f6&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;#10b981&quot;</span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;font&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arial&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;svgInstructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Detailed SVG generation instructions...&quot;</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;svgContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;svg viewBox=\&quot;0 0 800 600\&quot;&gt;...&lt;/svg&gt;&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/svg+xml&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Error (400):</strong></dt><dd><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid prompt&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Error (500):</strong></dt><dd><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generation failed&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error stack trace&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="visual-plan-structure">
+<h2>Visual Plan Structure<a class="headerlink" href="#visual-plan-structure" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">visualPlan</span></code> object contains:</p>
+<ul class="simple">
+<li><p><strong>title</strong>: Concise title for the diagram</p></li>
+<li><p><strong>type</strong>: Type of diagram (flowchart, architecture, wireframe, etc.)</p></li>
+<li><p><strong>elements</strong>: Array of diagram elements with positions</p></li>
+<li><p><strong>connections</strong>: Relationships between elements</p></li>
+<li><p><strong>layout</strong>: Layout algorithm (hierarchical, circular, grid, etc.)</p></li>
+<li><p><strong>styling</strong>: Colors, fonts, and visual hierarchy</p></li>
+<li><p><strong>svgInstructions</strong>: Detailed SVG generation instructions</p></li>
+</ul>
+</section>
+<section id="svg-generation">
+<h2>SVG Generation<a class="headerlink" href="#svg-generation" title="Link to this heading"></a></h2>
+<p>The endpoint performs a two-step process:</p>
+<ol class="arabic simple">
+<li><p><strong>Visual Plan Generation</strong>: Uses GPT-4o-mini to create a structured plan</p></li>
+<li><p><strong>SVG Generation</strong>: Uses GPT-4o-mini again to generate valid SVG XML code based on the plan</p></li>
+</ol>
+<p>The generated SVG:
+- Uses <code class="docutils literal notranslate"><span class="pre">viewBox=&quot;0</span> <span class="pre">0</span> <span class="pre">800</span> <span class="pre">600&quot;</span></code>
+- Includes proper styling for readability
+- Contains descriptive shapes and text elements
+- Is ready for direct use or further editing</p>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/api/generate-diagram&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="w">   </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">   </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">prompt</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;A system architecture diagram showing frontend, backend, and database layers&#39;</span>
+<span class="w">   </span><span class="p">})</span>
+<span class="p">});</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="c1">// Use data.svgContent directly in HTML</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;diagram&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">svgContent</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="supported-diagram-types">
+<h2>Supported Diagram Types<a class="headerlink" href="#supported-diagram-types" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Flowcharts and workflows</p></li>
+<li><p>Architecture diagrams</p></li>
+<li><p>Wireframes and mockups</p></li>
+<li><p>Network and system diagrams</p></li>
+<li><p>Organizational charts</p></li>
+<li><p>Process diagrams</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generate-art.html" class="btn btn-neutral float-left" title="Generate Art API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../components/index.html" class="btn btn-neutral float-right" title="Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Visual Plan Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
